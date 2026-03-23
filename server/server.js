@@ -8,9 +8,12 @@ require('dotenv').config();       // loads our secret keys from .env so we don't
 const app = express();
 
 // middleware - these run on every single request before it hits a route
-app.use(cors());           
-app.use(express.json());   
-app.use(morgan('dev'));     
+app.use(cors());
+app.use(express.json());
+app.use(morgan('dev'));
+
+// temporary debug log - logs every request so we can see what's hitting the server
+app.use((req, _res, next) => { console.log(`>> ${req.method} ${req.path}`); next(); });
 
 // basic  check just to confirm the server is alive
 app.get('/', (req, res) => res.json({ message: 'Carty API running' }));

@@ -1,0 +1,204 @@
+.profile-page {
+  padding: 2.5rem 0 4rem;
+  min-height: calc(100vh - 64px);
+  background: #F8FAFC;
+}
+
+.profile__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.profile__header h1 {
+  font-size: clamp(1.5rem, 4vw, 2rem);
+  font-weight: 800;
+  color: var(--text-dark);
+}
+
+.profile__sub {
+  color: var(--text-muted);
+  margin-top: 0.2rem;
+  font-size: 0.95rem;
+}
+
+/* sections in both view and edit mode */
+.profile__section {
+  margin-bottom: 1.5rem;
+}
+
+.profile__section h2 {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text-dark);
+  margin-bottom: 1rem;
+  padding-bottom: 0.6rem;
+  border-bottom: 1px solid #E2E8F0;
+}
+
+.profile__section-sub {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  margin-top: -0.5rem;
+  margin-bottom: 1rem;
+}
+
+/* don't lift cards on hover on this page */
+.profile__section.card:hover {
+  transform: none;
+}
+
+/* --- View mode --- */
+.profile__view {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.profile__info-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.25rem;
+}
+
+.profile__info-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.profile__info-label {
+  font-size: 0.78rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+  color: var(--text-muted);
+}
+
+.profile__info-value {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-dark);
+}
+
+.profile__diet-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.profile__empty {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+
+/* --- Edit mode --- */
+.profile__form {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.profile__form .profile__section {
+  background: white;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-neutral);
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.profile__fields {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.1rem;
+}
+
+/* reuse the form-group styles from Auth.css */
+.profile__form .form-group input {
+  padding: 0.7rem 1rem;
+  border: 1.5px solid #D1D5DB;
+  border-radius: 0.6rem;
+  font-size: 1rem;
+  font-family: inherit;
+  color: var(--text-dark);
+  transition: border-color var(--transition), box-shadow var(--transition);
+  outline: none;
+  width: 100%;
+}
+
+.profile__form .form-group input:focus {
+  border-color: var(--teal);
+  box-shadow: 0 0 0 3px rgba(249, 115, 22, 0.15);
+}
+
+.profile__form .form-group label {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text-dark);
+  display: block;
+  margin-bottom: 0.4rem;
+}
+
+/* dietary preference chip-style checkboxes */
+.profile__checkboxes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+
+/* the chip - looks like a tag, acts like a checkbox */
+.diet-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.4rem 0.9rem;
+  border: 1.5px solid #D1D5DB;
+  border-radius: 99px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: all var(--transition);
+  user-select: none;
+}
+
+.diet-chip input[type="checkbox"] {
+  display: none; /* hide the real checkbox, the chip IS the checkbox */
+}
+
+.diet-chip:hover {
+  border-color: var(--teal);
+  color: var(--teal);
+  background: var(--teal-light);
+}
+
+.diet-chip.selected {
+  background: var(--teal);
+  border-color: var(--teal);
+  color: white;
+}
+
+.profile__form-actions {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+@media (max-width: 600px) {
+  .profile__header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .profile__form-actions {
+    flex-direction: column;
+  }
+
+  .profile__form-actions button {
+    width: 100%;
+    text-align: center;
+  }
+}

@@ -1,0 +1,230 @@
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--white);
+  border-bottom: 1px solid #E2E8F0;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.06);
+}
+
+.navbar__inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+/* brand / logo */
+.navbar__brand {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--teal);
+  text-decoration: none;
+  letter-spacing: -0.5px;
+  transition: color var(--transition);
+  flex-shrink: 0;
+}
+
+.navbar__brand:hover {
+  color: var(--teal-dark);
+}
+
+/* nav links list */
+.navbar__links {
+  display: flex;
+  align-items: center;
+  gap: 0.1rem;
+  list-style: none;
+  flex: 1;
+  justify-content: center;
+}
+
+.navbar__links li a,
+.navbar__links li button {
+  display: block;
+  padding: 0.45rem 0.75rem;
+  color: var(--text-muted);
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 0.9rem;
+  border-radius: 0.5rem;
+  transition: color var(--transition), background var(--transition);
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+  white-space: nowrap;
+}
+
+.navbar__links li a:hover,
+.navbar__links li button:hover {
+  color: var(--text-dark);
+  background: #F1F5F9;
+}
+
+/* right-side action buttons */
+.navbar__actions {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-shrink: 0;
+}
+
+/* "Go ad free?" orange outline pill button */
+.navbar__adfree {
+  padding: 0.4rem 1rem;
+  border: 1.5px solid var(--teal);
+  color: var(--teal) !important;
+  border-radius: 99px;
+  font-size: 0.875rem !important;
+  font-weight: 600 !important;
+  text-decoration: none;
+  transition: all var(--transition);
+  white-space: nowrap;
+  background: none;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+.navbar__adfree:hover {
+  background: var(--teal) !important;
+  color: white !important;
+}
+
+/* sign in / sign up text link */
+.navbar__signin {
+  padding: 0.4rem 0.75rem !important;
+  color: var(--text-dark) !important;
+  font-weight: 600 !important;
+  font-size: 0.9rem !important;
+}
+
+.navbar__signin:hover {
+  color: var(--teal) !important;
+  background: var(--teal-light) !important;
+}
+
+/* filled sign up button */
+.navbar__cta {
+  background: var(--teal) !important;
+  color: white !important;
+  border-radius: var(--radius) !important;
+  padding: 0.45rem 1rem !important;
+  font-size: 0.875rem !important;
+  font-weight: 600 !important;
+}
+
+.navbar__cta:hover {
+  background: var(--teal-dark) !important;
+  color: white !important;
+}
+
+/* logout button styled like a muted link */
+.navbar__logout {
+  color: var(--text-muted) !important;
+}
+
+.navbar__logout:hover {
+  color: var(--danger) !important;
+  background: #FEF2F2 !important;
+}
+
+/* --- burger button (mobile only) --- */
+.navbar__burger {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+  border-radius: 6px;
+  transition: background var(--transition);
+}
+
+.navbar__burger:hover {
+  background: #F1F5F9;
+}
+
+/* the three lines */
+.navbar__burger span {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: var(--text-dark);
+  border-radius: 2px;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+/* animates into an X when menu is open */
+.navbar__burger.open span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+.navbar__burger.open span:nth-child(2) {
+  opacity: 0;
+  transform: scaleX(0);
+}
+.navbar__burger.open span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+/* --- mobile styles --- */
+@media (max-width: 900px) {
+  .navbar__links {
+    justify-content: flex-start;
+  }
+
+  .navbar__links li a,
+  .navbar__links li button {
+    font-size: 0.85rem;
+    padding: 0.4rem 0.6rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .navbar__burger {
+    display: flex;
+  }
+
+  .navbar__actions {
+    display: none;
+  }
+
+  /* hide links by default on mobile, slide down when active */
+  .navbar__links {
+    position: absolute;
+    top: 64px;
+    left: 0;
+    right: 0;
+    background: var(--white);
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: flex-start;
+    gap: 0;
+    max-height: 0;
+    overflow: hidden;
+    border-bottom: 1px solid #E2E8F0;
+    transition: max-height 0.3s ease;
+  }
+
+  .navbar__links.active {
+    max-height: 420px;
+  }
+
+  .navbar__links li {
+    border-top: 1px solid #F1F5F9;
+  }
+
+  .navbar__links li a,
+  .navbar__links li button {
+    padding: 0.9rem 1.5rem;
+    border-radius: 0;
+    width: 100%;
+    font-size: 0.95rem;
+  }
+}

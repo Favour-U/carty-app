@@ -1,0 +1,142 @@
+/* all the colours and spacing live here as variables so changing one thing updates everything */
+:root {
+  --teal:       #F97316;
+  --teal-dark:  #C2410C;
+  --teal-light: #FFF7ED;
+  --white:      #FFFFFF;
+  --text-dark:  #1E293B;
+  --text-muted: #64748B;
+  --danger:     #EF4444;
+  --success:    #10B981;
+  --radius:     0.75rem;
+  --shadow:     0 4px 16px rgba(249, 115, 22, 0.12);
+  --shadow-lg:  0 8px 32px rgba(249, 115, 22, 0.18);
+  --shadow-neutral: 0 4px 16px rgba(0, 0, 0, 0.08);
+  --transition: 0.2s ease;
+  --max-width:  1200px;
+}
+
+/* reset - just wipe out browser defaults so everything looks the same everywhere */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: var(--white);
+  color: var(--text-dark);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* reusable button styles  used across basically every page */
+.btn-primary {
+  display: inline-block;
+  background: var(--teal);
+  color: white;
+  border: none;
+  border-radius: var(--radius);
+  padding: 0.75rem 1.75rem;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background var(--transition), transform var(--transition), box-shadow var(--transition);
+}
+
+.btn-primary:hover {
+  background: var(--teal-dark);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow);
+}
+
+.btn-primary:active {
+  transform: translateY(0);
+}
+
+.btn-primary:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.btn-outline {
+  display: inline-block;
+  background: transparent;
+  color: var(--teal);
+  border: 2px solid var(--teal);
+  border-radius: var(--radius);
+  padding: 0.75rem 1.75rem;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all var(--transition);
+}
+
+.btn-outline:hover {
+  background: var(--teal);
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: var(--shadow);
+}
+
+/* white outline variant for use on dark backgrounds */
+.btn-outline--white {
+  color: white;
+  border-color: rgba(255, 255, 255, 0.6);
+}
+
+.btn-outline--white:hover {
+  background: white;
+  color: var(--text-dark);
+  border-color: white;
+}
+
+/* card - the white box with shadow used all over the place */
+.card {
+  background: white;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-neutral);
+  padding: 1.5rem;
+  transition: transform var(--transition), box-shadow var(--transition);
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+}
+
+/* error and success banners for forms */
+.error-banner {
+  background: #FEF2F2;
+  color: var(--danger);
+  border: 1px solid #FECACA;
+  border-radius: var(--radius);
+  padding: 0.75rem 1rem;
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+}
+
+.success-banner {
+  background: #ECFDF5;
+  color: var(--success);
+  border: 1px solid #A7F3D0;
+  border-radius: var(--radius);
+  padding: 0.75rem 1rem;
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+}
+
+/* utility */
+.container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}

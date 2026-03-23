@@ -19,11 +19,11 @@ const userSchema = new mongoose.Schema({
 });
 
 // this runs automatically before every .save() call
-// if the password hasn't changed we skip it. stops re-hashing an already hashed password
-userSchema.pre('save', async function (next) {
-  if (!this.isModified('password')) return next();
+// if the password hasn't changed we skip it - stops re-hashing an already hashed password
+// Mongoose 9: async hooks don't use next() - just return, the promise handles it
+userSchema.pre('save', async function () {
+  if (!this.isModified('password')) return;
   this.password = await bcrypt.hash(this.password, 10); // 10 salt rounds is the sweet spot for security vs speed
-  next();
 });
 
 // called during login compares what they typed with the stored hash

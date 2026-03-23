@@ -1,0 +1,131 @@
+.dashboard {
+  padding: 2.5rem 0 4rem;
+  min-height: calc(100vh - 64px);
+  background: #F8FAFC;
+}
+
+.dashboard__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 2.5rem;
+}
+
+.dashboard__header h1 {
+  font-size: clamp(1.6rem, 4vw, 2.2rem);
+  font-weight: 800;
+  color: var(--text-dark);
+}
+
+.dashboard__greeting-sub {
+  color: var(--text-muted);
+  margin-top: 0.2rem;
+}
+
+.dashboard__edit-btn {
+  white-space: nowrap;
+}
+
+/* section titles */
+.dashboard__section {
+  margin-bottom: 2.5rem;
+}
+
+.dashboard__section-title {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* responsive card grid */
+.dashboard__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.25rem;
+}
+
+/* profile summary cards */
+.dashboard__card {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  padding: 1.25rem 1.5rem;
+}
+
+.dashboard__card-icon {
+  font-size: 1.75rem;
+  flex-shrink: 0;
+  margin-top: 0.1rem;
+}
+
+.dashboard__card-label {
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+  color: var(--text-muted);
+  margin-bottom: 0.3rem;
+}
+
+.dashboard__card-value {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-dark);
+}
+
+/* link shown when a value isn't set yet */
+.dashboard__not-set {
+  font-size: 0.875rem;
+  color: var(--teal);
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.dashboard__not-set:hover {
+  text-decoration: underline;
+}
+
+/* placeholder / coming soon cards */
+.dashboard__placeholder {
+  text-align: center;
+  padding: 2rem 1.5rem;
+  background: white;
+  border: 2px dashed #E2E8F0;
+  box-shadow: none;
+}
+
+.dashboard__placeholder:hover {
+  border-color: var(--teal);
+  transform: translateY(-4px);
+  box-shadow: var(--shadow);
+}
+
+.dashboard__placeholder-icon {
+  font-size: 2rem;
+  margin-bottom: 0.75rem;
+}
+
+.dashboard__placeholder h3 {
+  font-size: 1rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  color: var(--text-dark);
+}
+
+.dashboard__placeholder p {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  line-height: 1.55;
+}
+
+@media (max-width: 600px) {
+  .dashboard__header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}

@@ -1,0 +1,290 @@
+/* price comparison page - white with subtle orange wavy background pattern */
+.price-page {
+  min-height: calc(100vh - 70px);
+  background-color: #fff;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='50'%3E%3Cpath d='M0 25 Q50 10 100 25 Q150 40 200 25 Q250 10 300 25 Q350 40 400 25' fill='none' stroke='%23F97316' stroke-width='1.5' stroke-opacity='0.12'/%3E%3C/svg%3E");
+  background-size: 400px 50px;
+  background-repeat: repeat;
+  padding: 2.5rem 0 4rem;
+}
+
+/* white card containing the whole table */
+.price-page__card {
+  background: white;
+  border-radius: 1.25rem;
+  padding: 2.5rem 2rem;
+  box-shadow: 0 4px 32px rgba(0, 0, 0, 0.07);
+  border: 1px solid #F1F5F9;
+}
+
+.price-page__title {
+  font-size: clamp(1.25rem, 3vw, 1.75rem);
+  font-weight: 700;
+  color: var(--text-dark);
+  text-align: center;
+  margin-bottom: 1.75rem;
+}
+
+/* search bar */
+.price-search {
+  display: flex;
+  align-items: center;
+  border: 1.5px solid var(--teal);
+  border-radius: 99px;
+  overflow: hidden;
+  max-width: 560px;
+  margin: 0 auto 2rem;
+}
+
+.price-search__btn {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: var(--teal);
+  color: white;
+  border: none;
+  padding: 0.65rem 1.1rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  font-family: inherit;
+  cursor: pointer;
+  border-radius: 99px;
+  white-space: nowrap;
+}
+
+.price-search__input {
+  flex: 1;
+  border: none;
+  outline: none;
+  padding: 0.65rem 1rem;
+  font-size: 0.9rem;
+  font-family: inherit;
+  color: var(--text-dark);
+  background: transparent;
+}
+
+/* tab navigation */
+.price-tabs {
+  display: flex;
+  gap: 0;
+  margin-bottom: 1.5rem;
+}
+
+.price-tab {
+  background: none;
+  border: none;
+  padding: 0.6rem 1.4rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--teal);
+  cursor: pointer;
+  font-family: inherit;
+  border-radius: 99px;
+  transition: all var(--transition);
+}
+
+.price-tab--active {
+  background: var(--teal);
+  color: white;
+}
+
+.price-tab:hover:not(.price-tab--active) {
+  background: var(--teal-light);
+}
+
+/* the comparison table */
+.price-table-wrapper {
+  overflow-x: auto;
+  border-radius: 0.75rem;
+  margin-bottom: 0;
+}
+
+.price-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+}
+
+.price-table thead tr {
+  background: var(--teal);
+}
+
+.price-table thead th {
+  color: white;
+  font-weight: 600;
+  padding: 0.85rem 1rem;
+  text-align: center;
+  white-space: nowrap;
+  border-right: 1px solid rgba(255, 255, 255, 0.25);
+}
+
+.price-table thead th:first-child {
+  text-align: left;
+  border-radius: 0.75rem 0 0 0;
+}
+
+.price-table thead th:last-child {
+  border-right: none;
+  border-radius: 0 0.75rem 0 0;
+}
+
+/* column separator between stores and best price */
+.price-table thead th:nth-child(8) {
+  border-left: 2px solid rgba(255, 255, 255, 0.4);
+}
+
+.price-table tbody tr {
+  border-bottom: 1px solid #F1F5F9;
+  transition: background var(--transition);
+}
+
+.price-table tbody tr:hover {
+  background: #FFFBF7;
+}
+
+.price-table tbody td {
+  padding: 0.85rem 1rem;
+  text-align: center;
+  color: var(--text-dark);
+}
+
+.price-table__col-product {
+  text-align: left !important;
+  font-weight: 500;
+  white-space: nowrap;
+  min-width: 180px;
+}
+
+/* orange pill badge for the cheapest price */
+.price-badge {
+  display: inline-block;
+  background: var(--teal);
+  color: white;
+  padding: 0.2rem 0.6rem;
+  border-radius: 99px;
+  font-weight: 600;
+  font-size: 0.875rem;
+}
+
+.price-table__empty {
+  text-align: center !important;
+  padding: 2rem !important;
+  color: var(--text-muted);
+  font-style: italic;
+}
+
+/* user's chosen (non-cheapest) store highlighted with a subtle outline */
+.price-table__chosen-cell {
+  outline: 2px solid var(--teal);
+  outline-offset: -2px;
+  background: var(--teal-light);
+}
+
+/* hint text below tabs */
+.price-pick-hint {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  margin-bottom: 0.75rem;
+}
+
+/* add / remove action buttons */
+.price-action-btn {
+  background: none;
+  border: 1.5px solid var(--teal);
+  color: var(--teal);
+  border-radius: 0.5rem;
+  padding: 0.3rem 0.7rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  font-family: inherit;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all var(--transition);
+}
+
+.price-action-btn:hover {
+  background: var(--teal);
+  color: white;
+}
+
+.price-action-btn--added {
+  background: var(--teal-light);
+  color: var(--teal);
+}
+
+.price-action-btn--remove {
+  border-color: var(--danger);
+  color: var(--danger);
+}
+
+.price-action-btn--remove:hover {
+  background: #FEF2F2;
+}
+
+/* basket summary bar */
+.price-summary {
+  margin-top: 0;
+  background: var(--teal);
+  border-radius: 99px;
+  padding: 1rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.price-summary__block {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: white;
+}
+
+.price-summary__amount {
+  font-size: 1.3rem;
+  font-weight: 800;
+}
+
+.price-summary__label {
+  font-size: 0.85rem;
+  opacity: 0.9;
+}
+
+.price-summary__block--save .price-summary__amount {
+  font-size: 1.5rem;
+}
+
+/* create shopping list button */
+.price-create-list-btn {
+  display: block;
+  margin: 1.5rem auto 0;
+  background: none;
+  border: 1.5px solid var(--teal);
+  color: var(--teal);
+  border-radius: 99px;
+  padding: 0.75rem 2.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  font-family: inherit;
+  cursor: pointer;
+  transition: all var(--transition);
+}
+
+.price-create-list-btn:hover {
+  background: var(--teal);
+  color: white;
+}
+
+@media (max-width: 768px) {
+  .price-page__card {
+    padding: 1.5rem 1rem;
+    border-radius: 0;
+    box-shadow: none;
+  }
+
+  .price-summary {
+    flex-direction: column;
+    border-radius: var(--radius);
+    text-align: center;
+  }
+}

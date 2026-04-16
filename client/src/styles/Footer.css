@@ -1,0 +1,98 @@
+/* shared footer used across all pages */
+.footer {
+  background: var(--white);
+  padding: 3rem 0 2rem;
+  position: relative;
+  overflow: hidden;
+  border-top: 1px solid #F1F5F9;
+}
+
+.footer__inner {
+  display: grid;
+  grid-template-columns: 1fr repeat(3, auto);
+  gap: 3rem;
+  align-items: start;
+  position: relative;
+  z-index: 1;
+}
+
+/* basket icon + Carty text stacked */
+.footer__brand-col {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.3rem;
+}
+
+.footer__basket-icon {
+  width: 56px;
+  height: 56px;
+  /* filter to turn the SVG orange */
+  filter: invert(56%) sepia(82%) saturate(1200%) hue-rotate(360deg) brightness(100%) contrast(97%);
+}
+
+.footer__brand-name {
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: var(--teal);
+}
+
+/* column heading */
+.footer__col-title {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--teal);
+  margin-bottom: 0.75rem;
+}
+
+/* link list */
+.footer__links {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.footer__links a {
+  color: var(--teal);
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: opacity var(--transition);
+}
+
+.footer__links a:hover {
+  opacity: 0.7;
+}
+
+/* decorative orange half-circles at bottom corners */
+.footer__circle {
+  position: absolute;
+  bottom: -60px;
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  background: var(--teal);
+}
+
+.footer__circle--left  { left: -60px; }
+.footer__circle--right { right: -60px; }
+
+@media (max-width: 768px) {
+  .footer__inner {
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+  }
+
+  .footer__brand-col {
+    grid-column: 1 / -1;
+    flex-direction: row;
+    align-items: center;
+    gap: 0.6rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .footer__inner {
+    grid-template-columns: 1fr;
+  }
+}

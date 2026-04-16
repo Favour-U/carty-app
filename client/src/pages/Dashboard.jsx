@@ -1,4 +1,4 @@
-// dashboard - first thing you see after logging in
+// dashboard first thing you see after logging in
 // shows a summary of your profile + placeholder cards for future features
 import { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';

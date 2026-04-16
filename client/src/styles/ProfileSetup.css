@@ -1,0 +1,192 @@
+/* profile setup page - same food background as login/register */
+.setup-page {
+  min-height: calc(100vh - 64px);
+  background-image: url('/register and login.jpg');
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 1rem;
+}
+
+/* centered form container */
+.setup-form-wrapper {
+  width: 100%;
+  max-width: 460px;
+  text-align: center;
+  padding: 2rem 1.5rem;
+}
+
+/* subheading below the title */
+.setup-heading-sub {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: white;
+  line-height: 1.4;
+  margin-bottom: 0.4rem;
+}
+
+/* small hint text */
+.setup-hint {
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.85);
+  margin-bottom: 1.5rem;
+}
+
+/* each field block */
+.setup-field {
+  margin-bottom: 1.1rem;
+  text-align: left;
+}
+
+.setup-label {
+  display: block;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: white;
+  margin-bottom: 0.4rem;
+}
+
+/* text inputs */
+.setup-input {
+  width: 100%;
+  padding: 0.8rem 1rem;
+  border: none;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  font-family: inherit;
+  background: white;
+  color: var(--text-dark);
+  outline: none;
+  transition: box-shadow var(--transition);
+}
+
+.setup-input:focus {
+  box-shadow: 0 0 0 3px rgba(249, 115, 22, 0.5);
+}
+
+/* number of members stepper  left arrow, value, right arrow */
+.setup-stepper {
+  display: flex;
+  align-items: center;
+  background: white;
+  border-radius: 0.5rem;
+  overflow: hidden;
+  height: 48px;
+}
+
+.stepper-btn {
+  background: none;
+  border: none;
+  color: var(--teal);
+  font-size: 1.1rem;
+  padding: 0 1.1rem;
+  cursor: pointer;
+  height: 100%;
+  transition: background var(--transition);
+  font-family: inherit;
+}
+
+.stepper-btn:hover {
+  background: var(--teal-light);
+}
+
+.stepper-value {
+  flex: 1;
+  text-align: center;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--teal);
+}
+
+/* cuisine circles - clickable emoji circles */
+.setup-cuisines {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding-top: 0.4rem;
+}
+
+.cuisine-circle {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.4rem;
+  background: white;
+  border: 2.5px solid transparent;
+  border-radius: 50%;
+  width: 80px;
+  height: 80px;
+  cursor: pointer;
+  font-family: inherit;
+  transition: border-color var(--transition), transform var(--transition);
+  padding: 0;
+  justify-content: center;
+}
+
+.cuisine-circle:hover {
+  border-color: var(--teal);
+  transform: translateY(-2px);
+}
+
+.cuisine-circle.selected {
+  border-color: var(--teal);
+  box-shadow: 0 0 0 3px rgba(249, 115, 22, 0.25);
+}
+
+.cuisine-circle__emoji {
+  font-size: 1.6rem;
+  line-height: 1;
+}
+
+/* label sits below the circle */
+.cuisine-circle__label {
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: var(--text-dark);
+  text-align: center;
+  position: absolute;
+  bottom: -1.4rem;
+  white-space: nowrap;
+}
+
+/* wrap the circle + label together */
+.cuisine-circle {
+  position: relative;
+  margin-bottom: 1.5rem;
+}
+
+/* skip button - looks like a bold link */
+.setup-skip-btn {
+  background: none;
+  border: none;
+  color: white;
+  font-weight: 700;
+  font-size: 0.9rem;
+  font-family: inherit;
+  cursor: pointer;
+  text-decoration: none;
+  padding: 0;
+}
+
+.setup-skip-btn:hover {
+  text-decoration: underline;
+}
+
+/* mobile - tighten up spacing */
+@media (max-width: 480px) {
+  .setup-form-wrapper {
+    padding: 1.5rem 1rem;
+  }
+
+  .cuisine-circle {
+    width: 68px;
+    height: 68px;
+  }
+
+  .cuisine-circle__emoji {
+    font-size: 1.3rem;
+  }
+}

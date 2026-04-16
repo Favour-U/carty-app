@@ -1,0 +1,234 @@
+/* shopping cart page - same wavy background as price comparison */
+.cart-page {
+  min-height: calc(100vh - 70px);
+  background-color: #fff;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='50'%3E%3Cpath d='M0 25 Q50 10 100 25 Q150 40 200 25 Q250 10 300 25 Q350 40 400 25' fill='none' stroke='%23F97316' stroke-width='1.5' stroke-opacity='0.12'/%3E%3C/svg%3E");
+  background-size: 400px 50px;
+  background-repeat: repeat;
+  padding: 2.5rem 0 4rem;
+}
+
+.cart-page__inner {
+  max-width: 680px;
+}
+
+/* back arrow + "Shopping Cart (n)" heading */
+.cart-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+/* circular orange back button */
+.cart-back-btn {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: var(--teal);
+  border: none;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: background var(--transition);
+}
+
+.cart-back-btn:hover {
+  background: var(--teal-dark);
+}
+
+.cart-title {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--teal);
+}
+
+/* empty state */
+.cart-empty {
+  text-align: center;
+  padding: 4rem 0;
+  color: var(--text-muted);
+}
+
+.cart-empty p {
+  margin-bottom: 1.5rem;
+  font-size: 1.1rem;
+}
+
+/* item list */
+.cart-items {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+/* individual cart item row */
+.cart-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.1rem 0;
+  border-bottom: 1px solid #F1F5F9;
+}
+
+.cart-item__info {
+  flex: 1;
+  min-width: 0;
+}
+
+.cart-item__name {
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--text-dark);
+  line-height: 1.3;
+}
+
+.cart-item__store {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  margin-top: 0.15rem;
+}
+
+.cart-item__price {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-dark);
+  white-space: nowrap;
+}
+
+/* quantity stepper - minus, number, plus */
+.cart-item__qty {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+/* orange circle buttons */
+.qty-btn {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: var(--teal);
+  border: none;
+  color: white;
+  font-size: 1.1rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background var(--transition);
+  line-height: 1;
+}
+
+.qty-btn:hover {
+  background: var(--teal-dark);
+}
+
+.qty-value {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-dark);
+  min-width: 20px;
+  text-align: center;
+}
+
+/* remove link */
+.cart-item__remove {
+  background: none;
+  border: none;
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  font-weight: 500;
+  cursor: pointer;
+  font-family: inherit;
+  white-space: nowrap;
+  transition: color var(--transition);
+}
+
+.cart-item__remove:hover {
+  color: var(--danger);
+}
+
+/* coupon input */
+.cart-coupon {
+  display: flex;
+  gap: 0.75rem;
+  margin: 1.5rem 0;
+}
+
+.cart-coupon__input {
+  flex: 1;
+  padding: 0.65rem 1rem;
+  border: 1.5px solid #D1D5DB;
+  border-radius: 0.5rem;
+  font-size: 0.9rem;
+  font-family: inherit;
+  outline: none;
+  transition: border-color var(--transition);
+}
+
+.cart-coupon__input:focus {
+  border-color: var(--teal);
+}
+
+.cart-coupon__btn {
+  background: var(--teal);
+  color: white;
+  border: none;
+  border-radius: 0.5rem;
+  padding: 0.65rem 1.25rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  font-family: inherit;
+  cursor: pointer;
+  transition: background var(--transition);
+}
+
+.cart-coupon__btn:hover {
+  background: var(--teal-dark);
+}
+
+/* orange summary card */
+.cart-summary {
+  background: var(--teal);
+  border-radius: 1rem;
+  padding: 1.5rem 2rem;
+  margin-top: 0.5rem;
+}
+
+.cart-summary__row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: white;
+  font-size: 1.1rem;
+  font-weight: 500;
+  padding: 0.4rem 0;
+}
+
+.cart-summary__row--total {
+  font-size: 1.3rem;
+  font-weight: 800;
+  border-top: 1px solid rgba(255, 255, 255, 0.3);
+  margin-top: 0.4rem;
+  padding-top: 0.8rem;
+}
+
+@media (max-width: 640px) {
+  .cart-item {
+    flex-wrap: wrap;
+    gap: 0.75rem;
+  }
+
+  .cart-item__info {
+    width: 100%;
+  }
+
+  .cart-summary {
+    padding: 1.25rem;
+  }
+}

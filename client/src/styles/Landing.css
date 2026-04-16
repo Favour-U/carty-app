@@ -1,405 +1,341 @@
 /* --- Hero --- */
 .hero {
-  background: #0F172A;
+  min-height: 580px;
+  background-image: url('/food spread for home page.png');
+  background-size: cover;
+  background-position: center;
   display: flex;
   align-items: center;
-  padding: 5rem 0 6rem;
+  justify-content: center;
+  text-align: center;
+  padding: 4rem 1.5rem;
 }
 
 .hero__content {
-  text-align: center;
+  max-width: 600px;
+  width: 100%;
 }
 
 .hero__title {
-  font-size: clamp(2rem, 5vw, 3.25rem);
-  font-weight: 800;
-  line-height: 1.15;
-  color: #FFFFFF;
-  margin-bottom: 1.25rem;
+  font-size: clamp(3rem, 8vw, 5rem);
+  font-weight: 900;
+  color: white;
+  margin-bottom: 0.4rem;
   letter-spacing: -1px;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
 }
 
-.hero__highlight {
-  color: var(--teal);
+.hero__tagline {
+  font-size: clamp(1rem, 2.5vw, 1.3rem);
+  color: white;
+  font-weight: 600;
+  margin-bottom: 2rem;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
 }
 
-.hero__subtitle {
-  font-size: clamp(1rem, 2vw, 1.15rem);
-  color: #94A3B8;
-  max-width: 580px;
-  margin: 0 auto 2.25rem;
-  line-height: 1.7;
-}
-
-.hero__actions {
+/* search bar with orange button on left */
+.hero__search {
   display: flex;
-  gap: 1rem;
-  justify-content: center;
-  flex-wrap: wrap;
+  align-items: center;
+  background: white;
+  border-radius: 99px;
+  overflow: hidden;
+  max-width: 480px;
+  margin: 0 auto;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
 }
 
-/* --- How it works --- */
-.how-it-works {
-  padding: 5rem 0;
-  background: var(--white);
-}
-
-.how-it-works__title {
-  text-align: center;
-  font-size: clamp(1.5rem, 3vw, 2rem);
-  font-weight: 700;
-  margin-bottom: 3.5rem;
-  color: var(--text-dark);
-}
-
-.steps {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 0;
-  position: relative;
-}
-
-/* orange connecting line behind the step numbers */
-.steps::before {
-  content: '';
-  position: absolute;
-  top: 20px;
-  left: calc(12.5% + 20px);
-  right: calc(12.5% + 20px);
-  height: 2px;
+.hero__search-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
   background: var(--teal);
-  z-index: 0;
+  color: white;
+  border: none;
+  padding: 0.75rem 1.25rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  font-family: inherit;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background var(--transition);
+  border-radius: 99px;
 }
 
-.step {
-  text-align: center;
-  padding: 0 1rem;
+.hero__search-btn:hover {
+  background: var(--teal-dark);
+}
+
+.hero__search-input {
+  flex: 1;
+  border: none;
+  outline: none;
+  padding: 0.75rem 1rem;
+  font-size: 0.95rem;
+  font-family: inherit;
+  color: var(--text-dark);
+  background: transparent;
+}
+
+/* --- How It Works --- */
+.how-it-works {
+  background: var(--white);
+  padding: 5rem 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.how-it-works__inner {
   position: relative;
   z-index: 1;
 }
 
-.step__number {
-  width: 42px;
-  height: 42px;
-  border-radius: 50%;
-  background: var(--teal);
-  color: white;
-  font-size: 1rem;
-  font-weight: 700;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 0 auto 1.25rem;
+.how-it-works__title {
+  font-size: clamp(1.75rem, 4vw, 2.5rem);
+  font-weight: 800;
+  color: var(--text-dark);
+  text-align: center;
+  margin-bottom: 1rem;
 }
 
-.step__title {
+.how-it-works__desc {
+  text-align: center;
+  color: var(--text-muted);
+  max-width: 680px;
+  margin: 0 auto 3rem;
+  line-height: 1.7;
   font-size: 0.95rem;
+}
+
+.how-it-works__cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.5rem;
+}
+
+/* individual feature card */
+.hiw-card {
+  padding: 2rem 1.5rem;
+  border: 1.5px solid #E2E8F0;
+  border-radius: var(--radius);
+  text-align: left;
+  transition: box-shadow var(--transition), border-color var(--transition);
+}
+
+.hiw-card:hover {
+  box-shadow: var(--shadow-neutral);
+  border-color: var(--teal);
+}
+
+/* selected/active card has a shadow to lift it */
+.hiw-card--active {
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.1);
+  border-color: transparent;
+}
+
+.hiw-card__icon {
+  margin-bottom: 1rem;
+}
+
+/* food image inside the Meals feature card */
+.hiw-card__food-img {
+  width: 100%;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+/* plain link inside a card heading */
+.hiw-card__link {
+  color: inherit;
+  text-decoration: none;
+}
+
+.hiw-card__link:hover {
+  color: var(--teal);
+}
+
+.hiw-card__title {
+  font-size: 1.1rem;
   font-weight: 700;
   color: var(--text-dark);
+  margin-bottom: 0.75rem;
+}
+
+.hiw-card__text {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  line-height: 1.6;
   margin-bottom: 0.5rem;
 }
 
-.step__desc {
-  font-size: 0.875rem;
+/* decorative orange half-circles at the sides of this section */
+.section-circle {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background: var(--teal);
+}
+
+.section-circle--left  { left: -60px; }
+.section-circle--right { right: -60px; }
+
+/* --- Weekly Meal Plan Section --- */
+.meal-plan-section {
+  background: var(--white);
+  padding: 4rem 0 3rem;
+  border-top: 1px solid #F1F5F9;
+}
+
+.meal-plan-section__inner {
+  text-align: center;
+}
+
+.meal-plan-section__title {
+  font-size: clamp(1.5rem, 3.5vw, 2.2rem);
+  font-weight: 800;
+  color: var(--text-dark);
+  margin-bottom: 0.75rem;
+}
+
+.meal-plan-section__sub {
   color: var(--text-muted);
+  font-size: 0.95rem;
+  max-width: 540px;
+  margin: 0 auto 2rem;
   line-height: 1.6;
 }
 
-.step__note {
-  display: inline-block;
-  margin-top: 0.5rem;
-  font-size: 0.8rem;
-  color: var(--teal);
+/* filter pill tags */
+.meal-plan-section__filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  justify-content: center;
+}
+
+.filter-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  padding: 0.5rem 1.1rem;
+  border: 1.5px solid var(--teal);
+  border-radius: 99px;
+  font-size: 0.875rem;
   font-weight: 500;
-}
-
-/* --- Popular plans --- */
-.plans-preview {
-  padding: 5rem 0;
-  background: #F8FAFC;
-}
-
-.plans-preview__header {
-  text-align: center;
-  margin-bottom: 2.5rem;
-}
-
-.plans-preview__title {
-  font-size: clamp(1.5rem, 3vw, 2rem);
-  font-weight: 700;
-  color: var(--text-dark);
-  margin-bottom: 0;
-}
-
-.plans-preview__grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1.5rem;
-  margin-bottom: 2rem;
-}
-
-.plan-card {
+  color: var(--teal);
+  text-decoration: none;
   background: white;
-  border-radius: var(--radius);
-  box-shadow: var(--shadow-neutral);
-  overflow: hidden;
-  transition: transform var(--transition), box-shadow var(--transition);
   cursor: pointer;
+  transition: all var(--transition);
 }
 
-.plan-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+.filter-pill:hover {
+  background: var(--teal);
+  color: white;
 }
 
-/* image placeholder with food emoji */
-.plan-card__image {
-  height: 160px;
-  background: #F1F5F9;
+.filter-pill--active {
+  background: var(--teal);
+  color: white;
+}
+
+/* --- Meal Cards --- */
+.meal-cards-section {
+  padding: 3rem 0 5rem;
+  background: var(--white);
+}
+
+.meal-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 1.5rem;
+}
+
+.meal-card {
+  border: 1px solid #E2E8F0;
+  border-radius: var(--radius);
+  overflow: hidden;
+  transition: box-shadow var(--transition), transform var(--transition);
+}
+
+.meal-card:hover {
+  box-shadow: var(--shadow-neutral);
+  transform: translateY(-3px);
+}
+
+.meal-card__img {
+  background: var(--teal-light);
+  height: 140px;
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 3.5rem;
 }
 
-.plan-card__body {
+.meal-card__body {
   padding: 1.25rem;
 }
 
-.plan-card__title {
-  font-size: 1rem;
+.meal-card__body h3 {
+  font-size: 1.05rem;
   font-weight: 700;
   color: var(--text-dark);
-  margin-bottom: 0.35rem;
+  margin-bottom: 0.4rem;
 }
 
-.plan-card__desc {
+.meal-card__body p {
   font-size: 0.875rem;
   color: var(--text-muted);
-  margin-bottom: 0.75rem;
+  margin-bottom: 1rem;
   line-height: 1.5;
 }
 
-.plan-card__stars {
-  color: var(--teal);
-  font-size: 0.875rem;
-  margin-bottom: 0.6rem;
-  letter-spacing: 1px;
-}
-
-.plan-card__footer {
+.meal-card__footer {
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
 
-.plan-card__save {
-  background: #ECFDF5;
-  color: #059669;
-  font-size: 0.8rem;
+.meal-card__save {
+  font-size: 0.875rem;
   font-weight: 700;
-  padding: 0.25rem 0.6rem;
-  border-radius: 99px;
+  color: var(--teal);
 }
 
-.plan-card__link {
+.meal-card__cta {
   font-size: 0.875rem;
   font-weight: 600;
   color: var(--teal);
   text-decoration: none;
-  transition: color var(--transition);
 }
 
-.plan-card__link:hover {
-  color: var(--teal-dark);
-}
-
-.plans-preview__more {
-  text-align: center;
-}
-
-.plans-preview__more a {
-  font-size: 0.95rem;
-  font-weight: 600;
-  color: var(--teal);
-  text-decoration: none;
-}
-
-.plans-preview__more a:hover {
+.meal-card__cta:hover {
   text-decoration: underline;
-}
-
-/* --- Testimonials --- */
-.testimonials {
-  padding: 5rem 0;
-  background: var(--white);
-}
-
-.testimonials__title {
-  text-align: center;
-  font-size: clamp(1.5rem, 3vw, 2rem);
-  font-weight: 700;
-  color: var(--text-dark);
-  margin-bottom: 2.5rem;
-}
-
-.testimonials__grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1.5rem;
-}
-
-.testimonial-card {
-  background: white;
-  border-radius: var(--radius);
-  box-shadow: var(--shadow-neutral);
-  padding: 1.5rem;
-}
-
-.testimonial-card__name {
-  font-size: 0.95rem;
-  font-weight: 700;
-  color: var(--text-dark);
-  margin-bottom: 0.6rem;
-}
-
-.testimonial-card__quote {
-  font-size: 0.875rem;
-  color: var(--text-muted);
-  line-height: 1.65;
-  margin-bottom: 1rem;
-}
-
-.testimonial-card__stars {
-  color: var(--teal);
-  font-size: 0.875rem;
-  letter-spacing: 1px;
-}
-
-/* --- Footer --- */
-.footer {
-  background: #1E293B;
-  color: #94A3B8;
-  padding: 3.5rem 0 1.5rem;
-}
-
-.footer__grid {
-  display: grid;
-  grid-template-columns: 2fr 1fr 1fr 1fr;
-  gap: 2.5rem;
-  margin-bottom: 2.5rem;
-}
-
-.footer__brand {
-  font-size: 1.2rem;
-  font-weight: 700;
-  color: var(--teal);
-  margin-bottom: 0.75rem;
-}
-
-.footer__tagline {
-  font-size: 0.875rem;
-  line-height: 1.6;
-  max-width: 260px;
-}
-
-.footer__col-title {
-  font-size: 0.85rem;
-  font-weight: 700;
-  color: #E2E8F0;
-  margin-bottom: 0.85rem;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-}
-
-.footer__links {
-  list-style: none;
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-}
-
-.footer__links a {
-  color: #94A3B8;
-  text-decoration: none;
-  font-size: 0.875rem;
-  transition: color var(--transition);
-}
-
-.footer__links a:hover {
-  color: #E2E8F0;
-}
-
-.footer__bottom {
-  border-top: 1px solid #334155;
-  padding-top: 1.5rem;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-  font-size: 0.8rem;
-}
-
-.footer__bottom a {
-  color: #64748B;
-  text-decoration: none;
-  font-size: 0.8rem;
-}
-
-.footer__bottom a:hover {
-  color: #94A3B8;
-}
-
-/* --- Mobile tweaks --- */
-@media (max-width: 900px) {
-  .steps {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 2rem;
-  }
-
-  .steps::before {
-    display: none;
-  }
-
-  .plans-preview__grid,
-  .testimonials__grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .footer__grid {
-    grid-template-columns: 1fr 1fr;
-  }
 }
 
 @media (max-width: 600px) {
   .hero {
-    padding: 3.5rem 0 4rem;
+    min-height: 420px;
   }
 
-  .hero__actions {
+  .hero__search {
     flex-direction: column;
-    align-items: center;
+    border-radius: var(--radius);
   }
 
-  .hero__actions a,
-  .hero__actions button {
+  .hero__search-btn {
     width: 100%;
-    max-width: 280px;
-    text-align: center;
+    justify-content: center;
+    border-radius: var(--radius) var(--radius) 0 0;
   }
 
-  .steps {
-    grid-template-columns: 1fr;
-  }
-
-  .plans-preview__grid,
-  .testimonials__grid {
-    grid-template-columns: 1fr;
-  }
-
-  .footer__grid {
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
+  .hero__search-input {
+    width: 100%;
+    padding: 0.75rem 1rem;
   }
 }

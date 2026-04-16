@@ -1,0 +1,651 @@
+/* meal planner page styles - matches the Figma weekly plan layout */
+.planner-page {
+  background: var(--white);
+}
+
+/* hero */
+.planner-hero {
+  background: var(--teal);
+  padding: 3rem 0;
+  text-align: center;
+}
+
+.planner-hero__title {
+  font-size: clamp(1.75rem, 4vw, 2.5rem);
+  font-weight: 800;
+  color: white;
+  margin-bottom: 0.5rem;
+}
+
+.planner-hero__sub {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 1rem;
+}
+
+/* ── Budget & settings ── */
+.planner-settings {
+  background-color: #fff;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='50'%3E%3Cpath d='M0 25 Q50 10 100 25 Q150 40 200 25 Q250 10 300 25 Q350 40 400 25' fill='none' stroke='%23F97316' stroke-width='1.5' stroke-opacity='0.1'/%3E%3C/svg%3E");
+  background-size: 400px 50px;
+  padding: 2.5rem 0;
+}
+
+.planner-settings__inner {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+/* white rounded box with budget input */
+.planner-budget-box {
+  background: white;
+  border-radius: 1rem;
+  padding: 2rem;
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.06);
+  max-width: 680px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.planner-budget-box__label {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--text-dark);
+  margin-bottom: 1.25rem;
+  justify-content: center;
+}
+
+.planner-budget-box__row {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.planner-budget-input {
+  flex: 1;
+  border: 1.5px solid var(--teal);
+  border-radius: 99px;
+  padding: 0.8rem 1.5rem;
+  font-size: 1.2rem;
+  font-weight: 700;
+  text-align: center;
+  font-family: inherit;
+  color: var(--text-dark);
+  outline: none;
+  transition: box-shadow var(--transition);
+}
+
+.planner-budget-input:focus {
+  box-shadow: 0 0 0 3px rgba(249, 115, 22, 0.2);
+}
+
+/* orange generate button */
+.planner-generate-btn {
+  background: var(--teal);
+  color: white;
+  border: none;
+  border-radius: 99px;
+  padding: 0.8rem 1.75rem;
+  font-size: 1rem;
+  font-weight: 700;
+  font-family: inherit;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background var(--transition), transform var(--transition);
+}
+
+.planner-generate-btn:hover {
+  background: var(--teal-dark);
+  transform: translateY(-1px);
+}
+
+.planner-budget-box__hint {
+  text-align: center;
+  color: var(--text-muted);
+  font-size: 0.875rem;
+  margin-top: 0.75rem;
+}
+
+/* style pill row */
+.planner-styles {
+  text-align: center;
+}
+
+.planner-styles__label {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  margin-bottom: 0.75rem;
+}
+
+.planner-styles__pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  justify-content: center;
+}
+
+/* ── Generated plan ── */
+.planner-results {
+  background-color: #fff;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='50'%3E%3Cpath d='M0 25 Q50 10 100 25 Q150 40 200 25 Q250 10 300 25 Q350 40 400 25' fill='none' stroke='%23F97316' stroke-width='1.5' stroke-opacity='0.1'/%3E%3C/svg%3E");
+  background-size: 400px 50px;
+  padding: 2.5rem 0 3rem;
+}
+
+/* wide cards for Sunday / Saturday */
+.day-card--wide {
+  background: white;
+  border-radius: 1rem;
+  padding: 1.5rem 2rem;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 2px 16px rgba(0, 0, 0, 0.06);
+}
+
+/* Monday selected state - blue outline */
+.day-card--wide:first-of-type {
+  border: 2px solid #3B82F6;
+}
+
+.day-card__title {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--text-dark);
+  margin-bottom: 1.25rem;
+  padding-bottom: 0.6rem;
+  border-bottom: 2px solid var(--teal);
+}
+
+.day-card__cals {
+  font-size: 0.9rem;
+  font-weight: 400;
+  color: var(--text-muted);
+}
+
+/* wide cards lay meals out in a horizontal row */
+.day-card__meals--row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+}
+
+/* Mon-Fri 5-column grid */
+.planner-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+/* grid day card */
+.day-card {
+  background: white;
+  border-radius: 0.75rem;
+  padding: 1rem;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.05);
+}
+
+.day-card__meals {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+/* individual meal slot inside a day */
+.meal-slot {
+  border-bottom: 1.5px dashed #F97316;
+  padding-bottom: 0.6rem;
+}
+
+.meal-slot:last-child {
+  border-bottom: none;
+}
+
+.meal-slot__type {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  margin-bottom: 0.2rem;
+}
+
+.meal-slot__name {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--text-dark);
+  line-height: 1.3;
+}
+
+.meal-slot__side {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  margin-bottom: 0.4rem;
+}
+
+.meal-slot__actions {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.meal-slot__action-btn {
+  background: none;
+  border: none;
+  color: var(--teal);
+  font-size: 0.75rem;
+  font-weight: 600;
+  font-family: inherit;
+  cursor: pointer;
+  padding: 0;
+  text-decoration: underline;
+  transition: opacity var(--transition);
+}
+
+.meal-slot__action-btn:hover {
+  opacity: 0.7;
+}
+
+/* orange calorie badge */
+.meal-slot__cal-badge {
+  background: var(--teal);
+  color: white;
+  font-size: 0.7rem;
+  font-weight: 700;
+  padding: 0.2rem 0.55rem;
+  border-radius: 99px;
+  margin-left: auto;
+}
+
+/* daily calories footer bar inside grid cards */
+.day-card__footer {
+  background: var(--teal);
+  color: white;
+  text-align: center;
+  font-size: 0.8rem;
+  font-weight: 600;
+  padding: 0.5rem 0.75rem;
+  border-radius: 99px;
+  margin-top: 0.75rem;
+}
+
+/* save row */
+.planner-save-row {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+  margin-top: 2rem;
+}
+
+.planner-save-btn {
+  background: var(--teal);
+  color: white;
+  border: none;
+  border-radius: 99px;
+  padding: 0.85rem 2.5rem;
+  font-size: 1rem;
+  font-weight: 700;
+  font-family: inherit;
+  cursor: pointer;
+  transition: background var(--transition), transform var(--transition);
+}
+
+.planner-save-btn:hover {
+  background: var(--teal-dark);
+  transform: translateY(-1px);
+}
+
+.planner-save-btn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.planner-save-msg {
+  color: var(--teal);
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+/* ── Open Food Facts search ── */
+.food-search-section {
+  padding: 4rem 0;
+  background: #F8FAFC;
+  text-align: center;
+}
+
+.food-search-section__title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--text-dark);
+  margin-bottom: 0.5rem;
+}
+
+.food-search-section__sub {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  margin: 0 auto 1.5rem;
+  max-width: 540px;
+}
+
+.food-search-form {
+  display: flex;
+  gap: 0.75rem;
+  max-width: 540px;
+  margin: 0 auto 2rem;
+}
+
+.food-search-input {
+  flex: 1;
+  padding: 0.75rem 1rem;
+  border: 1.5px solid #D1D5DB;
+  border-radius: 0.5rem;
+  font-size: 0.95rem;
+  font-family: inherit;
+  outline: none;
+  transition: border-color var(--transition);
+}
+
+.food-search-input:focus {
+  border-color: var(--teal);
+}
+
+.food-search-btn {
+  background: var(--teal);
+  color: white;
+  border: none;
+  border-radius: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  font-family: inherit;
+  cursor: pointer;
+  transition: background var(--transition);
+}
+
+.food-search-btn:hover   { background: var(--teal-dark); }
+.food-search-btn:disabled { opacity: 0.7; cursor: not-allowed; }
+
+/* food results grid */
+.food-results-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 1rem;
+}
+
+.food-result-card {
+  background: white;
+  border-radius: var(--radius);
+  overflow: hidden;
+  border: 1px solid #E2E8F0;
+  transition: box-shadow var(--transition);
+}
+
+.food-result-card:hover {
+  box-shadow: var(--shadow-neutral);
+}
+
+.food-result-card__img {
+  width: 100%;
+  height: 120px;
+  object-fit: contain;
+  background: #F8FAFC;
+  padding: 0.5rem;
+}
+
+.food-result-card__body {
+  padding: 0.9rem;
+}
+
+.food-result-card__name {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--text-dark);
+  margin-bottom: 0.2rem;
+  line-height: 1.3;
+}
+
+.food-result-card__brand,
+.food-result-card__qty {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+}
+
+.food-result-card__nutrition {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  margin-top: 0.6rem;
+}
+
+.food-result-card__nutrition span {
+  font-size: 0.72rem;
+  background: var(--teal-light);
+  color: var(--teal-dark);
+  padding: 0.15rem 0.45rem;
+  border-radius: 99px;
+  font-weight: 600;
+}
+
+.food-search-empty {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  margin-top: 1rem;
+  text-align: center;
+}
+
+/* ── Generation error ── */
+.planner-gen-error {
+  background: #FEF2F2;
+  color: #DC2626;
+  border: 1px solid #FECACA;
+  border-radius: 0.5rem;
+  padding: 0.75rem 1rem;
+  font-size: 0.9rem;
+  text-align: center;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* ── Loading skeleton ── */
+.planner-loading {
+  padding: 4rem 0;
+  text-align: center;
+}
+
+.planner-loading__inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.planner-loading__spinner {
+  width: 48px;
+  height: 48px;
+  border: 4px solid var(--teal-light);
+  border-top-color: var(--teal);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin { to { transform: rotate(360deg); } }
+
+.planner-loading__text {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--text-dark);
+}
+
+.planner-loading__sub {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+
+/* ── Expanded meal slot ── */
+.meal-slot__header {
+  cursor: pointer;
+}
+
+.meal-slot--open {
+  background: #FAFAFA;
+  border-radius: 0.5rem;
+  padding: 0.5rem;
+  margin: -0.5rem;
+}
+
+.meal-slot__toggle-btn {
+  background: none;
+  border: none;
+  color: var(--text-muted);
+  font-size: 0.7rem;
+  cursor: pointer;
+  padding: 0 0.2rem;
+  font-family: inherit;
+  transition: color var(--transition);
+}
+
+.meal-slot__toggle-btn:hover {
+  color: var(--teal);
+}
+
+/* expanded detail panel */
+.meal-slot__detail {
+  margin-top: 0.75rem;
+  padding-top: 0.75rem;
+  border-top: 1px dashed #E2E8F0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+/* nutrition row */
+.meal-slot__nutrition {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.meal-slot__nutrition span {
+  font-size: 0.72rem;
+  background: var(--teal-light);
+  color: var(--teal-dark);
+  padding: 0.2rem 0.5rem;
+  border-radius: 99px;
+  font-weight: 600;
+}
+
+.meal-slot__detail-label {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--text-muted);
+  margin-bottom: 0.4rem;
+}
+
+/* ingredients */
+.ingredient-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 0.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.ingredient-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+
+.ingredient-row__text {
+  font-size: 0.8rem;
+  color: var(--text-dark);
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+}
+
+.ingredient-row__store {
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+.ingredient-row__add-btn {
+  background: none;
+  border: 1px solid var(--teal);
+  color: var(--teal);
+  border-radius: 99px;
+  padding: 0.15rem 0.5rem;
+  font-size: 0.7rem;
+  font-weight: 600;
+  font-family: inherit;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all var(--transition);
+}
+
+.ingredient-row__add-btn:hover {
+  background: var(--teal);
+  color: white;
+}
+
+.meal-slot__add-all-btn {
+  width: 100%;
+  background: var(--teal);
+  color: white;
+  border: none;
+  border-radius: 0.4rem;
+  padding: 0.5rem 0.75rem;
+  font-size: 0.8rem;
+  font-weight: 700;
+  font-family: inherit;
+  cursor: pointer;
+  transition: background var(--transition);
+  margin-top: 0.25rem;
+}
+
+.meal-slot__add-all-btn:hover {
+  background: var(--teal-dark);
+}
+
+/* prep steps */
+.steps-list {
+  padding-left: 1.1rem;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.steps-list li {
+  font-size: 0.8rem;
+  color: var(--text-dark);
+  line-height: 1.5;
+}
+
+/* responsive */
+@media (max-width: 1024px) {
+  .planner-grid { grid-template-columns: repeat(3, 1fr); }
+  .day-card__meals--row { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 680px) {
+  .planner-grid { grid-template-columns: 1fr 1fr; }
+  .planner-budget-box__row { flex-direction: column; }
+  .planner-generate-btn { width: 100%; }
+}
+
+@media (max-width: 480px) {
+  .planner-grid { grid-template-columns: 1fr; }
+  .day-card__meals--row { grid-template-columns: 1fr; }
+}

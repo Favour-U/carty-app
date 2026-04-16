@@ -187,6 +187,219 @@
   flex-wrap: wrap;
 }
 
+/* --- Household member rows --- */
+.profile__members {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  margin-bottom: 1.25rem;
+}
+
+.member-row {
+  border: 1.5px solid #E2E8F0;
+  border-radius: var(--radius);
+  padding: 1rem 1.25rem;
+  background: #FAFAFA;
+}
+
+.member-row__header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 0.9rem;
+  flex-wrap: wrap;
+}
+
+.member-row__label {
+  font-weight: 600;
+  color: var(--text-dark);
+  font-size: 0.9rem;
+  flex: 1;
+}
+
+/* adult / child type toggle buttons */
+.member-type-toggle {
+  display: flex;
+  border: 1.5px solid var(--teal);
+  border-radius: 99px;
+  overflow: hidden;
+}
+
+.member-type-btn {
+  background: none;
+  border: none;
+  padding: 0.3rem 0.8rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  font-family: inherit;
+  color: var(--teal);
+  transition: all var(--transition);
+}
+
+.member-type-btn.active {
+  background: var(--teal);
+  color: white;
+}
+
+.member-remove-btn {
+  background: none;
+  border: none;
+  color: var(--danger);
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  font-family: inherit;
+  transition: opacity var(--transition);
+}
+
+.member-remove-btn:hover {
+  opacity: 0.7;
+}
+
+/* add member buttons */
+.profile__add-member {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+/* ── Saved meal plans ── */
+.profile__link {
+  color: var(--teal);
+  font-weight: 600;
+  text-decoration: none;
+}
+.profile__link:hover { text-decoration: underline; }
+
+.saved-plans {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.saved-plan-card {
+  border: 1.5px solid #E2E8F0;
+  border-radius: var(--radius);
+  overflow: hidden;
+  transition: border-color var(--transition);
+}
+
+.saved-plan-card--open {
+  border-color: var(--teal);
+}
+
+.saved-plan-card__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.9rem 1.1rem;
+  cursor: pointer;
+  gap: 1rem;
+  flex-wrap: wrap;
+  background: white;
+}
+
+.saved-plan-card__header:hover {
+  background: #F8FAFC;
+}
+
+.saved-plan-card__meta {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.saved-plan-card__date {
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: var(--text-dark);
+}
+
+.saved-plan-card__budget {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+.saved-plan-card__actions {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.saved-plan-card__load-btn {
+  background: var(--teal);
+  color: white;
+  border: none;
+  border-radius: 99px;
+  padding: 0.35rem 0.9rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  font-family: inherit;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background var(--transition);
+}
+.saved-plan-card__load-btn:hover { background: var(--teal-dark); }
+
+.saved-plan-card__delete-btn {
+  background: none;
+  border: none;
+  font-size: 1rem;
+  cursor: pointer;
+  opacity: 0.5;
+  transition: opacity var(--transition);
+  padding: 0;
+  line-height: 1;
+}
+.saved-plan-card__delete-btn:hover { opacity: 1; }
+
+.saved-plan-card__toggle {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+.saved-plan-card__body {
+  border-top: 1px solid #E2E8F0;
+  padding: 1rem 1.1rem;
+  background: #FAFAFA;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 1rem;
+}
+
+.saved-plan-day__name {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--teal);
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+  margin-bottom: 0.4rem;
+}
+
+.saved-plan-day__meals {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.saved-plan-day__meals li {
+  font-size: 0.78rem;
+  color: var(--text-dark);
+  line-height: 1.4;
+}
+
+.saved-plan-day__type {
+  font-size: 0.68rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  display: block;
+}
+
 @media (max-width: 600px) {
   .profile__header {
     flex-direction: column;

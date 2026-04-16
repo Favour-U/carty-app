@@ -1,209 +1,193 @@
-// the home/landing page - first thing visitors see
+// the home/landing page  first thing visitors see
 import { Link } from 'react-router-dom';
+import Footer from '../components/Footer';
 import '../styles/Landing.css';
+
+// meal plan filter options same ones used on the recipes page
+const FILTERS = ['Family budget', 'Kid-friendly', 'High-protein', 'Gluten-free', 'Quick & easy', 'Batch cook'];
 
 export default function Landing() {
   return (
     <div className="landing">
 
-      {/* hero - dark background, bold headline */}
+      {/* photo background with search bar */}
       <section className="hero">
-        <div className="container hero__content">
-          <h1 className="hero__title">
-            Never pay full price for your<br />
-            <span className="hero__highlight">weekly shop</span>
-          </h1>
-          <p className="hero__subtitle">
-            Carty compares live prices from Asda, Tesco &amp; Morrisons, so you
-            automatically get the cheapest basket every week. Average family saves £22 weekly.
-          </p>
-          <div className="hero__actions">
-            <Link to="/register" className="btn-primary">Find my weekly plan</Link>
-            <Link to="/login" className="btn-outline btn-outline--white">See how it works</Link>
+        <div className="hero__content">
+          <h1 className="hero__title">Carty</h1>
+          <p className="hero__tagline">For a better Budget, For a better You</p>
+          <div className="hero__search">
+            <button className="hero__search-btn">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+                <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
+              </svg>
+              Search
+            </button>
+            <input
+              type="text"
+              className="hero__search-input"
+              placeholder="Search Meals and Meal Plans"
+            />
           </div>
         </div>
       </section>
 
-      {/* how it works - 4 numbered steps with connecting orange line */}
+      {/* how it works  3 feature cards explaining the app */}
       <section className="how-it-works">
+        <div className="container how-it-works__inner">
+          <h2 className="how-it-works__title">How It Works</h2>
+          <p className="how-it-works__desc">
+            Carty is a website that Plans meals using ingredients compared between UK stores to reduce time wasted on meal 
+            plannig and to also aid you in finding the best deals on  products.
+          </p>
+
+          <div className="how-it-works__cards">
+
+            <div className="hiw-card hiw-card--active">
+              {/* food spread image for the meals card */}
+              <img
+                src="/food spread for home page.png"
+                alt="Food spread"
+                className="hiw-card__food-img"
+              />
+              <h3 className="hiw-card__title"><u><a href="/meals" className="hiw-card__link">Meals</a></u></h3>
+              <p className="hiw-card__text">
+                Check out our Meals page or Click 'Recipe' when creating your meal plan to explore
+                different recipes.
+              </p>
+              <p className="hiw-card__text">
+                Filled with different recipes for you to try and add to your meal plan.
+              </p>
+            </div>
+
+            <div className="hiw-card">
+              <img
+                src="/cartyimg-price_comparison.png"
+                alt="Price comparison"
+                className="hiw-card__food-img"
+              />
+              <h3 className="hiw-card__title">Price Comparison</h3>
+              <p className="hiw-card__text">
+                Check out our Price Comparison page, or click 'Compare' when you make your meal plan
+                to compare all the ingredients of that meal.
+              </p>
+              <p className="hiw-card__text">
+                You can also go into the meal plan and click 'compare prices' and it will compare each
+                ingredient.
+              </p>
+            </div>
+
+            <div className="hiw-card">
+              <img
+                src="/weeklymealplanner.png"
+                alt="Weekly meal planner"
+                className="hiw-card__food-img"
+              />
+              <h3 className="hiw-card__title">Weekly Meal Planner</h3>
+              <p className="hiw-card__text">
+                Set your weekly budget and we'll generate a full 7-day meal plan — breakfast, lunch,
+                dinner and snacks — tailored to your household.
+              </p>
+              <p className="hiw-card__text">
+                Supports high-protein, low-fat, gluten-free, vegan and more. Dietary preferences from
+                every household member are factored in automatically.
+              </p>
+            </div>
+
+          </div>
+        </div>
+
+        {/* decorative orange circles at the sides */}
+        <div className="section-circle section-circle--left" />
+        <div className="section-circle section-circle--right" />
+      </section>
+
+      {/* weekly meal plan section with filter pills */}
+      <section className="meal-plan-section">
+        <div className="container meal-plan-section__inner">
+          <h2 className="meal-plan-section__title">Your weekly meal plan put on autopilot</h2>
+          <p className="meal-plan-section__sub">
+            Pick a style and enter your weekly budget, we'll build a day-by-day plan with real-time
+            prices from your local stores.
+          </p>
+
+          <div className="meal-plan-section__filters">
+            {FILTERS.map((f) => (
+              <Link
+                key={f}
+                to="/meals"
+                className={`filter-pill ${f === 'Quick & easy' ? 'filter-pill--active' : ''}`}
+              >
+                {f === 'Family budget'  && '👨‍👩‍👧 '}
+                {f === 'Kid-friendly'   && '🧒 '}
+                {f === 'High-protein'   && '💪 '}
+                {f === 'Gluten-free'    && '🌿 '}
+                {f === 'Quick & easy'   && '🍳 '}
+                {f === 'Batch cook'     && '🌙 '}
+                {f}
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* popular meal cards */}
+      <section className="meal-cards-section">
         <div className="container">
-          <h2 className="how-it-works__title">How Carty works</h2>
-          <div className="steps">
+          <div className="meal-cards-grid">
 
-            <div className="step">
-              <div className="step__number">1</div>
-              <h3 className="step__title">Enter postcode</h3>
-              <p className="step__desc">We load every supermarket near you with today's prices.</p>
+            <div className="meal-card">
+              <div className="meal-card__img">🥘</div>
+              <div className="meal-card__body">
+                <h3>Family Classic</h3>
+                <p>Balanced, easy meals for busy families.</p>
+                <div className="meal-card__footer">
+                  <span className="meal-card__save">Save £22</span>
+                  <Link to="/meals" className="meal-card__cta">View plan</Link>
+                </div>
+              </div>
             </div>
 
-            <div className="step">
-              <div className="step__number">2</div>
-              <h3 className="step__title">Choose constraints</h3>
-              <p className="step__desc">Family size, budget, dietary needs — pick what matters to you.</p>
+            <div className="meal-card">
+              <div className="meal-card__img">💪</div>
+              <div className="meal-card__body">
+                <h3>High Protein Power</h3>
+                <p>High protein meals for energy and fitness.</p>
+                <div className="meal-card__footer">
+                  <span className="meal-card__save">Save £18</span>
+                  <Link to="/meals" className="meal-card__cta">View plan</Link>
+                </div>
+              </div>
             </div>
 
-            <div className="step">
-              <div className="step__number">3</div>
-              <h3 className="step__title">Real-time price magic</h3>
-              <p className="step__desc">We scan every store and auto-pick the cheapest option for every item.</p>
-              <span className="step__note">Live comparison across 3 stores</span>
+            <div className="meal-card">
+              <div className="meal-card__img">🥗</div>
+              <div className="meal-card__body">
+                <h3>Gluten Free Easy</h3>
+                <p>Simple gluten free meals, quick and affordable.</p>
+                <div className="meal-card__footer">
+                  <span className="meal-card__save">Save £24</span>
+                  <Link to="/meals" className="meal-card__cta">View plan</Link>
+                </div>
+              </div>
             </div>
 
-            <div className="step">
-              <div className="step__number">4</div>
-              <h3 className="step__title">Get your plan</h3>
-              <p className="step__desc">Daily meals + split shopping list. Ready in under 60 seconds.</p>
+            <div className="meal-card">
+              <div className="meal-card__img">🍜</div>
+              <div className="meal-card__body">
+                <h3>Budget Batch Cook</h3>
+                <p>Cook once, eat all week. Great for meal prep.</p>
+                <div className="meal-card__footer">
+                  <span className="meal-card__save">Save £30</span>
+                  <Link to="/meals" className="meal-card__cta">View plan</Link>
+                </div>
+              </div>
             </div>
 
           </div>
         </div>
       </section>
 
-      {/* popular meal plans */}
-      <section className="plans-preview">
-        <div className="container">
-          <div className="plans-preview__header">
-            <h2 className="plans-preview__title">Popular meal plans</h2>
-          </div>
-
-          <div className="plans-preview__grid">
-
-            <div className="plan-card">
-              <div className="plan-card__image">🍽️</div>
-              <div className="plan-card__body">
-                <h3 className="plan-card__title">Family Classic</h3>
-                <p className="plan-card__desc">Balanced, easy meals for busy families.</p>
-                <div className="plan-card__stars">★★★★★</div>
-                <div className="plan-card__footer">
-                  <span className="plan-card__save">Save £22</span>
-                  <a href="#" className="plan-card__link">View plan →</a>
-                </div>
-              </div>
-            </div>
-
-            <div className="plan-card">
-              <div className="plan-card__image">💪</div>
-              <div className="plan-card__body">
-                <h3 className="plan-card__title">High Protein Power</h3>
-                <p className="plan-card__desc">High protein meals for energy and fitness.</p>
-                <div className="plan-card__stars">★★★★☆</div>
-                <div className="plan-card__footer">
-                  <span className="plan-card__save">Save £18</span>
-                  <a href="#" className="plan-card__link">View plan →</a>
-                </div>
-              </div>
-            </div>
-
-            <div className="plan-card">
-              <div className="plan-card__image">🥗</div>
-              <div className="plan-card__body">
-                <h3 className="plan-card__title">Gluten Free Easy</h3>
-                <p className="plan-card__desc">Simple gluten free meals, quick and affordable.</p>
-                <div className="plan-card__stars">★★★★★</div>
-                <div className="plan-card__footer">
-                  <span className="plan-card__save">Save £24</span>
-                  <a href="#" className="plan-card__link">View plan →</a>
-                </div>
-              </div>
-            </div>
-
-          </div>
-
-          <div className="plans-preview__more">
-            <a href="#">See more plans →</a>
-          </div>
-        </div>
-      </section>
-
-      {/* testimonials */}
-      <section className="testimonials">
-        <div className="container">
-          <h2 className="testimonials__title">Testimonials</h2>
-          <div className="testimonials__grid">
-
-            <div className="testimonial-card">
-              <p className="testimonial-card__name">Lucia Collins</p>
-              <p className="testimonial-card__quote">
-                I've cut my grocery bill by nearly £25 a week without swapping brands.
-                Carty finds the cheapest store for each item — it's like having a personal shopper.
-              </p>
-              <div className="testimonial-card__stars">★★★★★</div>
-            </div>
-
-            <div className="testimonial-card">
-              <p className="testimonial-card__name">Marissa Chris</p>
-              <p className="testimonial-card__quote">
-                As a working mum, meal planning used to be a chore. Now I get a full
-                week of dinners and the exact shopping list in minutes. And I know I'm not overpaying.
-              </p>
-              <div className="testimonial-card__stars">★★★★★</div>
-            </div>
-
-            <div className="testimonial-card">
-              <p className="testimonial-card__name">Jennifer Quest</p>
-              <p className="testimonial-card__quote">
-                The price comparison is brilliant. I used to shop at Tesco out of habit,
-                but Carty showed me I could save over £20 by mixing stores. Never going back.
-              </p>
-              <div className="testimonial-card__stars">★★★★★</div>
-            </div>
-
-          </div>
-        </div>
-      </section>
-
-      {/* footer - dark multi-column */}
-      <footer className="footer">
-        <div className="container">
-          <div className="footer__grid">
-
-            <div>
-              <p className="footer__brand">🛒 Carty</p>
-              <p className="footer__tagline">
-                Smart meal planning with live price comparison.
-                Helping families save money across UK supermarkets.
-              </p>
-            </div>
-
-            <div>
-              <p className="footer__col-title">Quick Links</p>
-              <ul className="footer__links">
-                <li><a href="#">Home</a></li>
-                <li><a href="#">Recipe</a></li>
-                <li><a href="#">Plans</a></li>
-                <li><a href="#">Contact Us</a></li>
-              </ul>
-            </div>
-
-            <div>
-              <p className="footer__col-title">Support Us</p>
-              <ul className="footer__links">
-                <li><a href="#">Twitter</a></li>
-                <li><a href="#">Instagram</a></li>
-                <li><a href="#">Facebook</a></li>
-              </ul>
-            </div>
-
-            <div>
-              <p className="footer__col-title">Help</p>
-              <ul className="footer__links">
-                <li><a href="#">About us</a></li>
-                <li><a href="#">Contact us</a></li>
-                <li><a href="#">FAQs</a></li>
-                <li><a href="#">Privacy</a></li>
-                <li><a href="#">Terms</a></li>
-              </ul>
-            </div>
-
-          </div>
-
-          <div className="footer__bottom">
-            <span>© 2026 Carty Aberdeen, Scotland</span>
-            <a href="mailto:hi@carty.scot">hi@carty.scot</a>
-          </div>
-        </div>
-      </footer>
-
+      <Footer />
     </div>
   );
 }

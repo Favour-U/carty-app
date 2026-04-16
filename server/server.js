@@ -1,4 +1,4 @@
-// this is the main entry point for the backend - basically the brain of the whole server
+// this is the main entry point for the backend 
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');    // lets our frontend (different port) talk to this server
@@ -19,8 +19,11 @@ app.use((req, _res, next) => { console.log(`>> ${req.method} ${req.path}`); next
 app.get('/', (req, res) => res.json({ message: 'Carty API running' }));
 
 // mount our route files - all auth stuff lives under /api/auth, user stuff under /api/users
-app.use('/api/auth', require('./routes/authRoutes'));
-app.use('/api/users', require('./routes/userRoutes'));
+app.use('/api/auth',       require('./routes/authRoutes'));
+app.use('/api/users',      require('./routes/userRoutes'));
+app.use('/api/products',   require('./routes/productRoutes'));   // grocery price data
+app.use('/api/mealplans',  require('./routes/mealPlanRoutes'));  // save/load weekly meal plans
+app.use('/api/food-facts', require('./routes/foodFactsRoutes')); // Open Food Facts proxy
 
 // connect to MongoDB first, start listening - if DB fails the server won't even start
 mongoose

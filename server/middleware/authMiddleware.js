@@ -1,11 +1,11 @@
-// middleware that protects routes - if you don't have a valid token you're not getting in
+// middleware that protects routes  if you don't have a valid token you're not getting in
 const jwt = require('jsonwebtoken');
 const User = require('../models/User');
 
 const protect = async (req, res, next) => {
   const authHeader = req.headers.authorization;
 
-  // token should come in as "Bearer eyJhbGci..."  if missing, kick them out
+  // token should come in as "Bearer ....."  if missing, kick them out
   if (!authHeader || !authHeader.startsWith('Bearer ')) {
     return res.status(401).json({ message: 'Not authorised, no token' });
   }

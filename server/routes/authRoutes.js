@@ -5,11 +5,11 @@ const User = require('../models/User');
 
 const router = express.Router();
 
-// creates a JWT token with the user's id inside it - expires after 30 days
+// creates a JWT token with the user's id inside it  expires after 30 days
 const generateToken = (id) =>
   jwt.sign({ id }, process.env.JWT_SECRET, { expiresIn: '30d' });
 
-// POST /api/auth/register - create a new account
+// POST /api/auth/register  create a new account
 router.post('/register', async (req, res) => {
   try {
     const { name, email, password } = req.body;
@@ -25,7 +25,7 @@ router.post('/register', async (req, res) => {
       return res.status(400).json({ message: 'Email already in use' });
     }
 
-    // create the user - password gets hashed automatically by the pre-save hook in User.js
+    // create the user password gets hashed automatically by the pre-save hook in User.js
     const user = await User.create({ name, email, password });
 
     // send back their info + a token so they're instantly logged in after registering
@@ -41,14 +41,14 @@ router.post('/register', async (req, res) => {
   }
 });
 
-// POST /api/auth/login - sign into an existing account
+// POST /api/auth/login sign into an existing account
 router.post('/login', async (req, res) => {
   try {
     const { email, password } = req.body;
 
     const user = await User.findOne({ email });
 
-    // keep the error vague on purpose - don't tell them which one is wrong (security thing)
+    // keep the error vague on purpose  don't tell them which one is wrong (security thing)
     if (!user || !(await user.matchPassword(password))) {
       return res.status(401).json({ message: 'Invalid email or password' });
     }
